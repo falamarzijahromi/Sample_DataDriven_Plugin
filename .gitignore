@@ -31,3 +31,9 @@
 /Source/Plugin.Repositories.EFCore/obj
 /Source/Plugin.Unit.Tests/obj
 /Source/Plugin.Unit.Tests/bin/Debug/netstandard2.0
+/Source/Plugin.Api.Publisher/obj
+/Source/Plugin.Composition.Development/bin/Debug/netstandard2.0
+/Source/Plugin.Composition.Development/obj
+/Source/Sample_Plugin/bin/Debug/netcoreapp3.1
+/Source/Sample_Plugin
+/Source/Sample_Plugin.sln.DotSettings.user

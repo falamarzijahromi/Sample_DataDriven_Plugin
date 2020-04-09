@@ -18,19 +18,6 @@ namespace Plugin.Api.V1
             this.sampleCrudService = sampleCrudService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateSample(SampleViewModel model)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest();
-
-            var createdId = await sampleCrudService.InsertSample(model.ToSampleDto());
-
-            model.Id = createdId;
-
-            return Created(Request.Path, model);
-        }
-
         [HttpDelete, Route("{sampleId:guid}")]
         public async Task<IActionResult> DeleteSample(Guid sampleId)
         {

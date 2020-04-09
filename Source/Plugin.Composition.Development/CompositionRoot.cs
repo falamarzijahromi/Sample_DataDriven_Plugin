@@ -10,11 +10,16 @@ namespace Plugin.Composition.Development
         {
             Composition.CompositionRoot.RegisterDependencies(services);
 
+            OverrideDataContextRegistration(services);
+        }
+
+        private static void OverrideDataContextRegistration(IServiceCollection services)
+        {
             services.AddScoped(_ =>
             {
                 var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
 
-                optionsBuilder.UseInMemoryDatabase("Plugin.Develpment");
+                optionsBuilder.UseInMemoryDatabase("Plugin.Development");
 
                 var dataContext = new DataContext(optionsBuilder.Options);
 

@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Plugin.Application.Part_1.Models;
+using System;
 
 namespace Plugin.Repositories.EFCore.Mappings.Part_1
 {
-    public class SampleDbMapping : IEntityTypeConfiguration<Sample>
+    public class SomethingElseBySampleMapping : IEntityTypeConfiguration<SomethingElseBySample>
     {
-        public void Configure(EntityTypeBuilder<Sample> builder)
+        public void Configure(EntityTypeBuilder<SomethingElseBySample> builder)
         {
             builder.HasKey(s => s.Id);
 
-            builder.Property(s => s.Name)
-                .IsRequired();                
+            builder.Property<Guid>("sampleId");
         }
     }
 }

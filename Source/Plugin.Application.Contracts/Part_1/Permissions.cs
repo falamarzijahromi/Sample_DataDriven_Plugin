@@ -7,5 +7,7 @@ namespace Plugin.Application.Contracts.Part_1
     public enum Permissions
     {
         DeleteSample,
+        CreateSomethingElse,
+        CreateSample,
     }
 }

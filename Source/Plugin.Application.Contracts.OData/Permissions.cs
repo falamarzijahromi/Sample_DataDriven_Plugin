@@ -3,5 +3,6 @@
     public enum Permissions
     {
         SampleQuery,
+        SomethingElseQuery,
     }
 }

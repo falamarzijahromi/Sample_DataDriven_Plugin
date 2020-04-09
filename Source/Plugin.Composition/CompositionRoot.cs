@@ -31,6 +31,7 @@ namespace Plugin.Composition
         private static void RegisterODataRepositories(IServiceCollection services)
         {
             services.AddScoped<ISamplesODataRepository, SampleODataRepository>();
+            services.AddScoped<ISomethingElseODataRepository, SomethingElseODataRepository>();
         }
 
         private static void RegisterDataContext(IServiceCollection services)
@@ -41,11 +42,13 @@ namespace Plugin.Composition
         private static void RegisterRepositories(IServiceCollection services)
         {
             services.AddScoped<ISampleCrudRepository, SampleCrudRepository>();
+            services.AddScoped<ISomethingElseRepository, SomethingElseRepository>();
         }
 
         private static void RegisterApplicationServices(IServiceCollection services)
         {
             services.AddScoped<ISampleCrudService, SampleCrudService>();
+            services.AddScoped<ISomethingElseService, SomethingElseService>();
         }
     }
 }
