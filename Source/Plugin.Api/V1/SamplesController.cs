@@ -30,14 +30,14 @@ namespace Plugin.Api.V1
         }
 
         [HttpPut, Route("{sampleId:guid}")]
-        public async Task<IActionResult> DeleteSample(Guid sampleId, SampleViewModel model)
+        public async Task<IActionResult> UpdateSample(Guid sampleId, SampleViewModel model)
         {
             if (sampleId == default(Guid))
                 return BadRequest(sampleId);
 
             model.Id = sampleId;
 
-            await sampleCrudService.DeleteSample(sampleId);
+            await sampleCrudService.UpdateSample(model.ToSampleDto());
 
             return Ok(model);
         }

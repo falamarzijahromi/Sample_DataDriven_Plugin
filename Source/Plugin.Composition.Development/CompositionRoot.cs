@@ -14,8 +14,6 @@ namespace Plugin.Composition.Development
             Composition.CompositionRoot.RegisterDependencies(services);
 
             OverrideDataContextRegistration(services);
-
-            RemoveEventBus(services);
         }
 
         private static void RemoveEventBus(IServiceCollection services)

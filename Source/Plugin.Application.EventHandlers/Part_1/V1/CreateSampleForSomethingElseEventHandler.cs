@@ -6,7 +6,7 @@ using Framework.Consistency.Contracts.Eventual.Event;
 
 namespace Plugin.Application.EventHandlers.Part_1.V1
 {
-    [ForIntegrationEvent(typeof(SampleCreatedEvent), eventVersion: "1.0.0")]
+    [ForIntegrationEvent(typeof(SampleCreatedEvent), eventVersion: null)]
     public class CreateSampleForSomethingElseEventHandler
     {
         private readonly ISomethingElseService somethingElseService;
