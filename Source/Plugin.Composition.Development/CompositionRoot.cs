@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Plugin.Repositories.EFCore.DataBase;
+using System.Linq;
+using Framework.Consistency.Contracts.Eventual.Event;
 
 namespace Plugin.Composition.Development
 {
@@ -11,10 +14,23 @@ namespace Plugin.Composition.Development
             Composition.CompositionRoot.RegisterDependencies(services);
 
             OverrideDataContextRegistration(services);
+
+            RemoveEventBus(services);
+        }
+
+        private static void RemoveEventBus(IServiceCollection services)
+        {
+            var eventBusServiceDescriptor = services.Single(sd => sd.ServiceType == typeof(IEventBus));
+
+            services.Remove(eventBusServiceDescriptor);
         }
 
         private static void OverrideDataContextRegistration(IServiceCollection services)
         {
+            var dataContextServiceDescriptor = services.Single(sd => sd.ServiceType == typeof(DataContext));
+
+            services.Remove(dataContextServiceDescriptor);
+
             services.AddScoped(_ =>
             {
                 var optionsBuilder = new DbContextOptionsBuilder<DataContext>();

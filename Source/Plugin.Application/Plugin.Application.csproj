@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mapster" Version="5.2.0" />
-    <PackageReference Include="Framework.Consistency.Contracts.Eventual" Version="2.2.1" />
+    <PackageReference Include="Mapster" Version="5.3.0" />
+    <PackageReference Include="Framework.Consistency.Contracts.Eventual" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup>

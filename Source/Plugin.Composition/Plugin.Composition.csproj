@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Framework.Consistency.InMemory.DependencyInjection" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Plugin.Application.EventHandlers\Plugin.Application.EventHandlers.csproj" />
     <ProjectReference Include="..\Plugin.Application\Plugin.Application.csproj" />
     <ProjectReference Include="..\Plugin.Repositories.EFCore\Plugin.Repositories.EFCore.csproj" />
   </ItemGroup>

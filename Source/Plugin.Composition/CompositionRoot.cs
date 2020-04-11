@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Framework.Consistency.InMemory.DependencyInjection.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 using Plugin.Application.Contracts.OData.Part_1;
 using Plugin.Application.Contracts.Part_1.Services;
+using Plugin.Application.EventHandlers.Part_1.V1;
+using Plugin.Application.Part_1.CommandHandlers;
 using Plugin.Application.Part_1.Repositories;
 using Plugin.Application.Part_1.Services;
 using Plugin.Repositories.EFCore.DataBase;
@@ -22,6 +25,22 @@ namespace Plugin.Composition
             RegisterAcls(services);
 
             RegisterDataContext(services);
+
+            RegisterEventHandlers(services);
+
+            RegisterCommandHandlers(services);
+        }
+
+        private static void RegisterCommandHandlers(IServiceCollection services)
+        {
+            services.AddInMemoryCommandBus()
+                .RegisterCommandHandlers(fromAssembly: typeof(CreateSampleCommandHandler).Assembly);
+        }
+
+        private static void RegisterEventHandlers(IServiceCollection services)
+        {
+            services.AddInMemoryEventBus()
+                .RegisterEventHandlers(fromAssembly: typeof(CreateSampleForSomethingElseEventHandler).Assembly);
         }
 
         private static void RegisterAcls(IServiceCollection services)

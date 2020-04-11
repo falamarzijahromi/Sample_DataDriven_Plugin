@@ -21,7 +21,7 @@ namespace Plugin.Api.V1
         [HttpDelete, Route("{sampleId:guid}")]
         public async Task<IActionResult> DeleteSample(Guid sampleId)
         {
-            if (sampleId == default)
+            if (sampleId == default(Guid))
                 return BadRequest(sampleId);
 
             await sampleCrudService.DeleteSample(sampleId);
@@ -32,7 +32,7 @@ namespace Plugin.Api.V1
         [HttpPut, Route("{sampleId:guid}")]
         public async Task<IActionResult> DeleteSample(Guid sampleId, SampleViewModel model)
         {
-            if (sampleId == default)
+            if (sampleId == default(Guid))
                 return BadRequest(sampleId);
 
             model.Id = sampleId;

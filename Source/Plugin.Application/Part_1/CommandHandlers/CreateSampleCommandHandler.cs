@@ -1,8 +1,8 @@
-﻿using Framework.Consistency.Contracts.Eventual;
-using Plugin.Application.Contracts.Part_1.Commands;
+﻿using Plugin.Application.Contracts.Part_1.Commands;
 using Plugin.Application.Contracts.Part_1.Dtos;
 using Plugin.Application.Contracts.Part_1.Services;
 using System.Threading.Tasks;
+using Framework.Consistency.Contracts.Eventual.Command;
 
 namespace Plugin.Application.Part_1.CommandHandlers
 {
@@ -16,7 +16,7 @@ namespace Plugin.Application.Part_1.CommandHandlers
             this.service = service;
         }
 
-        public async Task HandleCommandAsync(CreateSampleCommand command)
+        public async Task HandleCommand(CreateSampleCommand command)
         {
             var sampleDto = new SampleDto { Name = command.Name };
 

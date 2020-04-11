@@ -1,4 +1,4 @@
-﻿using Framework.Consistency.Contracts.Eventual;
+﻿using Framework.Consistency.Contracts.Eventual.Event;
 using Plugin.Application.Contracts.Part_1.Dtos;
 
 namespace Plugin.Application.Contracts.Part_1.Events.V_1._0._0

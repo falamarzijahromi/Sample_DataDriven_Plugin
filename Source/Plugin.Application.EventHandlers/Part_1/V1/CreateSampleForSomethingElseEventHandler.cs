@@ -1,8 +1,8 @@
-﻿using Framework.Consistency.Contracts.Eventual;
-using Plugin.Application.Contracts.Part_1.Dtos;
+﻿using Plugin.Application.Contracts.Part_1.Dtos;
 using Plugin.Application.Contracts.Part_1.Events.V_1._0._0;
 using Plugin.Application.Contracts.Part_1.Services;
 using System.Threading.Tasks;
+using Framework.Consistency.Contracts.Eventual.Event;
 
 namespace Plugin.Application.EventHandlers.Part_1.V1
 {
@@ -16,7 +16,7 @@ namespace Plugin.Application.EventHandlers.Part_1.V1
             this.somethingElseService = somethingElseService;
         }
 
-        public async Task HandleEventAsync(SampleCreatedEvent @event)
+        public async Task HandleEvent(SampleCreatedEvent @event)
         {
             var somethingElseDto = new SomethingElseDto { SampleId = @event.Sample.Id };
 

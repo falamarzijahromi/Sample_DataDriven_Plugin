@@ -1,4 +1,4 @@
-﻿using Command = Framework.Consistency.Contracts.Eventual.CommandAtrribute;
+﻿using Framework.Consistency.Contracts.Eventual.Command;
 
 namespace Plugin.Application.Contracts.Part_1.Commands
 {
